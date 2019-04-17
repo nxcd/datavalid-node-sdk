@@ -2,6 +2,8 @@
 
 > NodeJS SDK to Serpro's DataValid API
 
+[![Build Status](https://travis-ci.org/nxcd/datavalid-node-sdk.svg?branch=master)](https://travis-ci.org/nxcd/datavalid-node-sdk)
+
 ## Summary
 
 - [Datavalid Node SDK](#datavalid-node-sdk)
