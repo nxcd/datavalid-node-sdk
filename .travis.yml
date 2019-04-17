@@ -13,6 +13,9 @@ script:
 
 jobs:
   include:
+    - stage: "Test"
+      script: npm test
+
     - stage: "Deploy"
       deploy:
         provider: npm
