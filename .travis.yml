@@ -10,10 +10,12 @@ before_script:
 
 script:
   - npm run build:clean
-  - npm run coverage
 
 jobs:
   include:
+    - stage: "Test"
+      script: npm run coverage
+
     - stage: "Deploy"
       deploy:
         provider: npm
