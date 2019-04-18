@@ -1,6 +1,7 @@
 import { SDKError } from './errors/SDKError'
 import { APIError, AuthenticationError } from './errors'
 import axios, { AxiosInstance, AxiosResponse } from 'axios'
+import qs from 'query-string'
 import {
   IDataValidPFInput,
   IDataValidPJInput,
@@ -29,9 +30,9 @@ export class DataValidClient {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      data: {
+      data: qs.stringify({
         grant_type: 'client_credentials'
-      }
+      })
     })
 
     this.apiClient = axios.create({
