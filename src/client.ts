@@ -1,7 +1,7 @@
 import { SDKError } from './errors/SDKError'
 import { APIError, AuthenticationError } from './errors'
 import axios, { AxiosInstance, AxiosResponse } from 'axios'
-import qs from 'query-string'
+import qs from 'querystring'
 import {
   IDataValidPFInput,
   IDataValidPJInput,
@@ -29,10 +29,7 @@ export class DataValidClient {
       },
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      data: qs.stringify({
-        grant_type: 'client_credentials'
-      })
+      }
     })
 
     this.apiClient = axios.create({
@@ -78,7 +75,7 @@ export class DataValidClient {
 
   private async _getToken () {
     try {
-      const { data: response }: AxiosResponse<IDataValidAuthResponse> = await this.authClient.post(this.authPath)
+      const { data: response }: AxiosResponse<IDataValidAuthResponse> = await this.authClient.post(this.authPath, qs.stringify({ grant_type: 'client_credentials' }))
       return response.access_token
     } catch (e) {
       if (e.response) throw new AuthenticationError(JSON.stringify(e.response.data), e.response)
