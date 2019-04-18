@@ -18,7 +18,7 @@ export class DataValidClient {
   private readonly authPath: string = '/token'
 
   constructor (config: IDataValidParams) {
-    this.checkConfig(config)
+    this._checkConfig(config)
 
     this.authClient = axios.create({
       baseURL: config.authUrl,
@@ -85,7 +85,7 @@ export class DataValidClient {
     }
   }
 
-  checkConfig (config: IDataValidParams): void {
+  private _checkConfig (config: IDataValidParams): void {
     if (!config.apiUrl || !config.authUrl || !config.consumerKey || !config.consumerSecret) {
       throw new SDKError('Missing configuration params', {
         computedParams: {
