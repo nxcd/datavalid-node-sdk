@@ -1,40 +1,48 @@
+type Parents = {
+  nome_mae: boolean
+  nome_mae_similaridade: number
+  nome_pai: boolean
+  nome_pai_similaridade: number
+}
+
+type Address = {
+  logradouro: boolean
+  logradouro_similaridade: number
+  numero: boolean
+  numero_similaridade: number
+  bairro: boolean
+  bairro_similaridade: number
+  cep: boolean
+  municipio: boolean
+  municipio_similaridade: number
+  uf: boolean
+  uf_similaridade: number
+}
+
+type Document = {
+  tipo: boolean
+  numero: boolean
+  orgao_expedidor: boolean
+  uf_expedidor: boolean
+}
+
+type License = {
+  categoria: boolean
+  registro_nacional_estrangeiro: boolean
+  data_primeira_habilitacao: boolean
+  data_validade: boolean
+  numero_registro: boolean
+}
+
 export interface IDataValidSuccessPFResponse {
   sexo: boolean
   data_nascimento: boolean
   situacao_cpf: boolean
-  filiacao: {
-    nome_mae: boolean
-    nome_mae_similaridade: number
-    nome_pai: boolean
-    nome_pai_similaridade: number
-  }
+  filiacao?: Parents
   nacionalidade: boolean
-  endereco: {
-    logradouro: boolean
-    logradouro_similaridade: number
-    numero: boolean
-    numero_similaridade: number
-    bairro: boolean
-    bairro_similaridade: number
-    cep: boolean
-    municipio: boolean
-    municipio_similaridade: number
-    uf: boolean
-    uf_similaridade: number
-  }
-  documento: {
-    tipo: boolean
-    numero: boolean
-    orgao_expedidor: boolean
-    uf_expedidor: boolean
-  }
-  cnh: {
-    categoria: boolean
-    registro_nacional_estrangeiro: boolean
-    data_primeira_habilitacao: boolean
-    data_validade: boolean
-    numero_registro: boolean
-  }
+  endereco?: Address
+  documento?: Document
+  cnh?: License
 }
 
 export interface IDataValidSuccessPJResponse {
@@ -93,10 +101,10 @@ export interface IDataValidSuccessPJResponse {
 }
 
 export interface IDataValidSuccessImageResponse {
-  filiacao: {}
-  endereco: {}
-  documento: {}
-  cnh: {}
+  filiacao?: Parents
+  endereco?: Address
+  documento?: Document
+  cnh?: License
   biometria_face: {
     disponivel: boolean
     probabilidade: string

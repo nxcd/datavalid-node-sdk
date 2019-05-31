@@ -52,11 +52,7 @@ export class DataValidClient {
     return this._call(apiPath, data)
   }
 
-  private async _call<T> (path: string, data: Partial<T>): Promise<
-    T extends IDataValidPFInput ? IDataValidSuccessPFResponse :
-    T extends IDataValidPJInput ? IDataValidSuccessPJResponse :
-    IDataValidSuccessImageResponse
-  > {
+  private async _call<I, R> (path: string, data: Partial<I>): Promise<R> {
     const token = await this._getToken()
     const config = {
       headers: {
