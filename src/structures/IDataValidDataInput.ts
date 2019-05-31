@@ -2,31 +2,7 @@ export interface IDataValidPFInput {
   key: {
     cpf: string
   }
-  answer?: {
-    nome?: string
-    sexo?: 'M' | 'F'
-    data_nascimento?: string
-    situacao_cpf?: string
-    filiacao?: {
-      nome_mae?: string
-      nome_pai?: string
-    }
-    nacionalidade?: number
-    endereco?: Address
-    documento?: {
-      tipo?: number
-      numero?: string
-      orgao_expedidor?: string
-      uf_expedidor?: string
-    }
-    cnh?: {
-      numero_registro?: string
-      registro_nacional_estrangeiro?: string
-      categoria?: string
-      data_primeira_habilitacao?: string
-      data_validade?: string
-    }
-  }
+  answer?: DatavalidPFQuestionInput
 }
 
 export interface IDataValidPJInput {
@@ -68,9 +44,7 @@ export interface IDataValidImageInput {
   key: {
     cpf: string
   }
-  answer: {
-    biometria_face: string
-  }
+  answer: IImageAnswer
 }
 
 type Address = {
@@ -81,4 +55,34 @@ type Address = {
   cep: string
   municipio: string
   uf: string
+}
+
+type DatavalidPFQuestionInput = {
+  nome?: string
+  sexo?: 'M' | 'F'
+  data_nascimento?: string
+  situacao_cpf?: string
+  filiacao?: {
+    nome_mae?: string
+    nome_pai?: string
+  }
+  nacionalidade?: number
+  endereco?: Address
+  documento?: {
+    tipo?: number
+    numero?: string
+    orgao_expedidor?: string
+    uf_expedidor?: string
+  }
+  cnh?: {
+    numero_registro?: string
+    registro_nacional_estrangeiro?: string
+    categoria?: string
+    data_primeira_habilitacao?: string
+    data_validade?: string
+  }
+}
+
+interface IImageAnswer extends DatavalidPFQuestionInput {
+  biometria_face?: string
 }
