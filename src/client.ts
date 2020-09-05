@@ -1,7 +1,8 @@
+import qs from 'querystring'
+import axios, { AxiosInstance, AxiosResponse } from 'axios'
+
 import { SDKError } from './errors/SDKError'
 import { APIError, AuthenticationError } from './errors'
-import axios, { AxiosInstance, AxiosResponse } from 'axios'
-import qs from 'querystring'
 import {
   IDataValidPFInput,
   IDataValidPJInput,

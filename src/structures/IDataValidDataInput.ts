@@ -78,9 +78,12 @@ type DatavalidPFQuestionInput = {
     numero_registro?: string
     registro_nacional_estrangeiro?: string
     categoria?: string
+    data_ultima_emissao?: string
     data_primeira_habilitacao?: string
     data_validade?: string
-  }
+    codigo_situacao?: number
+  },
+  biometria_face?: string
 }
 
 interface IImageAnswer extends DatavalidPFQuestionInput {
