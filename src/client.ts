@@ -65,7 +65,10 @@ export class DataValidClient {
       const { data: response } = await this.apiClient.post(path, data, config)
       return response
     } catch (e) {
-      if (e.response) throw new APIError(JSON.stringify(e.response.data), e.response)
+      if (e.response) {
+        throw new APIError(JSON.stringify(e.response.data), e.response)
+      }
+
       throw new SDKError(e.message)
     }
   }

@@ -58,7 +58,6 @@ export interface IDataValidSuccessPFResponse {
   endereco?: Address
   documento?: Document
   cnh?: License
-  biometria_face?: Biometry
 }
 
 export interface IDataValidSuccessPJResponse {
@@ -116,10 +115,6 @@ export interface IDataValidSuccessPJResponse {
   }
 }
 
-export interface IDataValidSuccessImageResponse {
-  filiacao?: Parents
-  endereco?: Address
-  documento?: Document
-  cnh?: License
+export interface IDataValidSuccessImageResponse extends IDataValidSuccessPFResponse {
   biometria_face: Biometry
 }

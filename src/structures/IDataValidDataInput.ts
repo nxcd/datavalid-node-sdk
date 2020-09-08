@@ -82,8 +82,7 @@ type DatavalidPFQuestionInput = {
     data_primeira_habilitacao?: string
     data_validade?: string
     codigo_situacao?: number
-  },
-  biometria_face?: string
+  }
 }
 
 interface IImageAnswer extends DatavalidPFQuestionInput {
