@@ -6,35 +6,50 @@ type Parents = {
 }
 
 type Address = {
+  cep: boolean
+  uf: boolean
   logradouro: boolean
   logradouro_similaridade: number
   numero: boolean
   numero_similaridade: number
   bairro: boolean
   bairro_similaridade: number
-  cep: boolean
   municipio: boolean
   municipio_similaridade: number
-  uf: boolean
-  uf_similaridade: number
+  complemento: boolean
+  complemento_similaridade: number
+}
+
+type Biometry = {
+  disponivel: boolean
+  probabilidade: string
+  similaridade: number
 }
 
 type Document = {
   tipo: boolean
   numero: boolean
+  numero_similaridade: number
   orgao_expedidor: boolean
   uf_expedidor: boolean
 }
 
 type License = {
+  nome: boolean
   categoria: boolean
+  nome_similaridade: number
+  numero_registro: boolean
   registro_nacional_estrangeiro: boolean
   data_primeira_habilitacao: boolean
   data_validade: boolean
-  numero_registro: boolean
+  data_ultima_emissao: boolean
+  codigo_situacao: boolean
 }
 
 export interface IDataValidSuccessPFResponse {
+  cpf_disponivel: boolean
+  nome: boolean
+  nome_similaridade: number
   sexo: boolean
   data_nascimento: boolean
   situacao_cpf: boolean
@@ -43,6 +58,7 @@ export interface IDataValidSuccessPFResponse {
   endereco?: Address
   documento?: Document
   cnh?: License
+  biometria_face?: Biometry
 }
 
 export interface IDataValidSuccessPJResponse {
@@ -105,9 +121,5 @@ export interface IDataValidSuccessImageResponse {
   endereco?: Address
   documento?: Document
   cnh?: License
-  biometria_face: {
-    disponivel: boolean
-    probabilidade: string
-    similaridade: number
-  }
+  biometria_face: Biometry
 }
