@@ -77,7 +77,7 @@
     "typescript": "^3.4.3"
   },
   "dependencies": {
-    "axios": "^0.20.0"
+    "axios": "^0.21.1"
   },
   "files": [
     "dist/**/*"
